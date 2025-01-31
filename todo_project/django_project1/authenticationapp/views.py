@@ -39,6 +39,7 @@ def registration(request):
         if password == confirm_password:
             user = User.objects.create_user(username=username, first_name=first_name, email=email, password=password)
             user.save()
+            print("hii")
             return redirect("login_page")
 
 
