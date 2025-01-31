@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+{{user}}
+<head>
+    <meta charset="UTF-8">
+    <title>View Task</title>
+      <style>
+
+        body {
+
+            background-image: url(https://images.pexels.com/photos/4924964/pexels-photo-4924964.jpeg?auto=compress&cs=tinysrgb&w=600);
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-repeat: no-repeat;
+
+            height: 100vh;
+
+            font-family: 'Poppins', sans-serif;
+
+            margin: 0;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+        }
+
+        .container {
+
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(235, 235, 236, 0.9));
+
+            border-radius: 15px;
+
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+
+            padding: 80px;
+
+            width: 90%;
+
+            max-width: 900px;
+
+            transition: transform 0.3s;
+
+        }
+
+        .container:hover {
+
+            transform: translateY(-2px);
+
+        }
+
+        h1 {
+
+            color: #333;
+
+            text-align: center;
+
+            font-size: 32px;
+
+            font-weight: 700;
+
+            margin-bottom: 20px;
+
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+
+        }
+      h2 {
+            text-align: center;
+            color: grey;
+            font-size: 20px;
+        }
+        table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            margin: 20px 0;
+
+        }
+
+        th {
+
+            background-color: #4597ef;
+
+            color: white;
+
+            text-align: center;
+
+            font-size: 18px;
+
+            font-weight: 600;
+
+            padding: 12px;
+
+            border-radius: 8px 8px 0 0;
+
+        }
+
+        td {
+
+            color: #555;
+
+            text-align: center;
+
+            font-size: 16px;
+
+            font-weight: 400;
+
+            padding: 15px 15px;
+
+            border: 1px solid #b3b3b3;
+        }
+
+        td a {
+
+            color: #dc3545;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: color 0.3s;
+
+        }
+
+        td a:hover {
+
+            color: #c82333;
+
+            text-decoration: underline;
+
+        }
+
+        .back-button {
+
+            display: block;
+
+            text-align: center;
+
+            margin-top: 20px;
+
+            padding: 12px 25px;
+
+            background-color: #4597ef;
+
+            color: red;
+
+            border: none;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            text-decoration: none;
+
+            font-size: 18px;
+
+            transition: background-color 0.1s;
+
+        }
+
+        .back-button:hover {
+
+            background-color: #318ff3;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+    <h1><center>VIEW TASK</center></h1>
+        <h2>welcome {{user}}</h2>
+
+
+    <table border="1">
+        <tr>
+            <th>task_id</th>
+            <th>task_itle</th>
+            <th>task_complete</th>
+            <th>task_description</th>
+            <th>task_created</th>
+            <th>task_updated</th>
+            <th>action</th>
+            <th>action</th>
+        </tr>
+        <tr>
+            <td>{{ task_list.id }}</td>
+            <td>{{ task_list.task_title }}</td>
+            <td>{{ task_list.task_complete }}</td>
+            <td>{{ task_list.task_description }}</td>
+            <td>{{ task_list.created_on}}</td>
+            <td>{{ task_list.updated_on}}</td>
+
+
+            <td>
+                <a href="/delete_task/{{task_list.id}}">delete</a>
+            </td>
+            <td>
+                <a href="/edit_task/{{task_list.id}}">edit</a>
+            </td>
+        </tr>
+    </table>
+<br>
+
+        <button><a href="/task">back</a></button>
+
+
+
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+
+<!--<html lang="en">-->
+
+<!--<head>-->
+
+<!--    <meta charset="UTF-8">-->
+
+<!--    <title>View Task</title>-->
+
+<!--    <style>-->
+<!--        body {-->
+
+<!--            background-image: url('./vector-JUL-2021-72.jpg');-->
+
+<!--            background-size: cover;-->
+
+<!--            background-position: center;-->
+
+<!--            background-repeat: no-repeat;-->
+
+<!--            height: 100vh;-->
+
+<!--            font-family: 'Poppins', sans-serif;-->
+
+<!--            margin: 0;-->
+
+<!--            display: flex;-->
+
+<!--            justify-content: center;-->
+
+<!--            align-items: center;-->
+
+<!--        }-->
+
+<!--        .container {-->
+
+<!--            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(235, 235, 236, 0.9));-->
+
+<!--            border-radius: 15px;-->
+
+<!--            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);-->
+
+<!--            padding: 30px;-->
+
+<!--            width: 90%;-->
+
+<!--            max-width: 900px;-->
+
+<!--            transition: transform 0.3s;-->
+
+<!--        }-->
+
+<!--        .container:hover {-->
+
+<!--            transform: translateY(-2px);-->
+
+<!--        }-->
+
+<!--        h1 {-->
+
+<!--            color: #333;-->
+
+<!--            text-align: center;-->
+
+<!--            font-size: 32px;-->
+
+<!--            font-weight: 700;-->
+
+<!--            margin-bottom: 20px;-->
+
+<!--        }-->
+
+<!--        table {-->
+
+<!--            width: 100%;-->
+
+<!--            border-collapse: collapse;-->
+
+<!--            margin: 20px 0;-->
+
+<!--        }-->
+
+<!--        th {-->
+
+<!--            background-color: #4597ef;-->
+
+<!--            color: white;-->
+
+<!--            text-align: center;-->
+
+<!--            font-size: 18px;-->
+
+<!--            font-weight: 600;-->
+
+<!--            padding: 12px;-->
+
+<!--            border-radius: 8px 8px 0 0;-->
+
+<!--        }-->
+
+<!--        td {-->
+
+<!--            color: #555;-->
+
+<!--            text-align: center;-->
+
+<!--            font-size: 16px;-->
+
+<!--            font-weight: 400;-->
+
+<!--            padding: 15px 10px;-->
+
+<!--            border: 1px solid #b3b3b3;-->
+<!--        }-->
+
+<!--        td a {-->
+
+<!--            color: #dc3545;-->
+
+<!--            text-decoration: none;-->
+
+<!--            font-weight: bold;-->
+
+<!--            transition: color 0.3s;-->
+
+<!--        }-->
+
+<!--        td a:hover {-->
+
+<!--            color: #c82333;-->
+
+<!--            text-decoration: underline;-->
+
+<!--        }-->
+
+<!--        .back-button {-->
+
+<!--            display: block;-->
+
+<!--            text-align: center;-->
+
+<!--            margin-top: 20px;-->
+
+<!--            padding: 12px 25px;-->
+
+<!--            background-color: #4597ef;-->
+
+<!--            color: white;-->
+
+<!--            border: none;-->
+
+<!--            border-radius: 5px;-->
+
+<!--            cursor: pointer;-->
+
+<!--            text-decoration: none;-->
+
+<!--            font-size: 18px;-->
+
+<!--            transition: background-color 0.1s;-->
+
+<!--        }-->
+
+<!--        .back-button:hover {-->
+
+<!--            background-color: #318ff3;-->
+
+<!--        }-->
+<!--    </style>-->
+
+<!--</head>-->
+
+<!--<body>-->
+
+
+<!--    <div class="container">-->
+
+<!--        <h1>View Task</h1>-->
+
+<!--        <table>-->
+
+<!--            <tr>-->
+
+<!--                <th>Task ID</th>-->
+
+<!--                <th>Task Title</th>-->
+
+<!--                <th>Task Complete</th>-->
+
+<!--                <th>Task Description</th>-->
+
+<!--                <th>Action</th>-->
+
+<!--            </tr>-->
+
+<!--            <tr>-->
+
+<!--                <td>{{ task_list.id }}</td>-->
+
+<!--                <td>{{ task_list.task_title }}</td>-->
+
+<!--                <td>{{ task_list.task_complete }}</td>-->
+
+<!--                <td>{{ task_list.task_description }}</td>-->
+
+<!--                <td>-->
+
+<!--                    <a href="/delete_task/{{task_list.id}}">Delete</a>-->
+
+<!--                </td>-->
+
+<!--            </tr>-->
+
+<!--        </table>-->
+
+<!--        <a href="add_task{{task.id}}" class="back-button">Back</a>-->
+
+<!--    </div>-->
+
+
+<!--</body>-->
+
+<!--</html>-->

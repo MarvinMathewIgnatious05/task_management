@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--{{user}}-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+
+     <style>
+        body {
+            background-image: url('https://images.pexels.com/photos/5717066/pexels-photo-5717066.jpeg?auto=compress&cs=tinysrgb&w=600');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            color: black;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+
+        }
+        h2 {
+            text-align: center;
+            color: grey;
+            font-size: 20px;
+        }
+        form {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 90%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a09;
+        }
+        table {
+            margin: auto;
+            width: 80%;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 10px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:hover {
+            background-color: #D3D3D3;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        a:hover {
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+
+<h1><center>TASK MANAGER </center></h1>
+<button><a href="/login_page" style="color:white" >logout</a></button>
+
+<h2>welcome {{user}}</h2>
+<!--<p> add new task :<a href="/task_list">Create Task</a></p>-->
+
+<!--hi {{user}}-->
+<form action="" method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+        <label>task_title : {{task.task_title}}</label>
+        <input type="text" name = "task_title">
+        <br><br>
+        <label> task_complete :</label>
+        <input type="text" name = "task_complete">
+        <br><br>
+        <label> task_description :{{task.task_description}}</label>
+        <input type="text" name="task_description">
+
+         <button name="submit" >add task</button>
+
+        <br><br>
+    </form>
+<!--    {{task_list}}-->
+<br><br>
+
+<table border="2">
+    <tr>
+        <th>task_id</th><th>task_title</th><th>task_complete</th><th>task_description</th><th>task_date</th><th>action_1</th><th>action_2</th><th>action_3</th>
+    </tr>
+    {% for task in task_list %}
+    <tr>
+
+        <td>{{ task.id }}</td>
+        <td>{{ task.task_title }}</td>
+        <td>{{ task.task_complete }}</td>
+        <td>{{ task.task_description}}</td>
+        <td>{{ task.created_on}}</td>
+<!--        <td>{{ task.updated_on}}</td>-->
+        <td>
+            <a href="delete_task/{{task.id}}">Delete</a>
+        </td>
+        <td>
+            <a href="view_task/{{task.id}}">view</a>
+        </td>
+        <td>
+            <a href="edit_task/{{task.id}}">Edit</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<!--    Display success message-->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert{{message.tags}}" style="color:red">
+                <br><br>
+                <center>{{message}}</center>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+
+</body>
+</html>
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Add Task</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1><center>Add Task</center></h1>-->
+<!--    <form action="" method="post" enctype="multipart/form-data">-->
+<!--        {% csrf_token %}-->
+<!--        <label>Task Title:</label>-->
+<!--        <input type="text" name="task_title">-->
+<!--        <br><br>-->
+<!--        <label>Task Complete:</label>-->
+<!--        <input type="text" name="task_complete">-->
+<!--        <br><br>-->
+<!--        <label>Task Description:</label>-->
+<!--        <input type="text" name="task_description">-->
+<!--        <br><br>-->
+<!--        <button name="submit">Add Task</button>-->
+<!--    </form>-->
+<!--    <br>-->
+<!--    <a href="task_list/">Back to Task List</a>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+         body {
+            background-image: url('https://img.freepik.com/free-photo/blue-three-exercise-book-white-space_114579-76180.jpg?t=st=1737962541~exp=1737966141~hmac=6d247033ed126c21ae913ea284c13588fec261ab54cd2c216309e5b20a802e48&w=996');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: Arial, sans-serif;
+                    }
+        h1{
+        text-align: center;
+        font-family: Arial, sans-serif;
+        color: black;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+
+        }
+            form {
+            margin: auto;
+            width: 300px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(3, 0, 0, 0.2);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 17px;
+        }
+                input {
+            width: 70%;
+            padding: 6px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 12px;
+
+        }
+        p{
+        font-size: 11px;
+        }
+           button {
+            width: 100%;
+            padding: 7px;
+            background-color: grey;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+
+        }
+
+
+
+    </style>
+</head>
+<body>
+<h1>REGISTRATION FORM</h1>
+<form action="" method="post" enctype="multipart/form-data" id="registration_form">
+        {% csrf_token %}
+        <label>username : </label>
+        <input placeholder="username" type="text" name = "username">
+        <p>Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</p>
+        <br><br>
+        <label> first_name :</label>
+        <input placeholder="f_name" type="text" name = "first_name">
+        <br><br>
+        <label> email :</label>
+        <input placeholder="email" type="text" name="email">
+        <br><br>
+        <label> password :</label>
+        <input placeholder="password" type="password" name ="password">
+        <P> Your password must contain at least 6 characters.</P>
+        <label> confirm_password :</label>
+        <input placeholder="password" type="password" name = "confirm_password">
+        <p>Enter the same password as before, for verification.</p>
+        <br><br>
+
+
+         <button name="submit" >register</button>
+    <br><br>
+        <button> Already have an account ?. <a href="/login_page"> Sign</a></button>
+
+
+
+        <br><br>
+    </form>
+<!--    Display success message-->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert{{message.tags}}" style="color:red">
+                <br><br>
+                <center>{{message}}</center>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+</body>
+</html>

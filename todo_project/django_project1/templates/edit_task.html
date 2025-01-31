@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EDIT_TASK</title>
+    <style>
+         body {
+            background-image: url('https://images.pexels.com/photos/5717066/pexels-photo-5717066.jpeg?auto=compress&cs=tinysrgb&w=600');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+        h1{
+             text-align: center;
+            color: black;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+           form {
+            margin: auto;
+            width: 50%;
+            padding: 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>EDIT TASK</h1>
+<form action="" method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+        <label>task_title : {{task.task_title}}</label>
+        <input type="text" value={{task_list.task_title}} name = "task_title">
+        <br><br>
+        <label> task_complete :</label>
+        <input type="text"  value={{task_list.task_complete}} name = "task_complete">
+        <br><br>
+        <label> task_description :{{task.task_description}}</label>
+        <input type='text' value="{{task_list.task_description}}" name="task_description" >
+
+         <button  name="submit" >update</button>
+
+        <br><br>
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--    <div class="container" >-->
+<!--        <table>-->
+<!--            <tr>-->
+<!--            <th>task_title</th>-->
+<!--            <th>task_complete</th>-->
+<!--            <th>task_description</th>-->
+<!--            <th>task_created_on</th>-->
+<!--                <th>task_updated_on</th>-->
+
+
+<!--            </tr>-->
+
+<!--            <tr>-->
+<!--                <td>{{task_list.id}}</td>-->
+<!--                <td>{{task_list.task_title}}</td>-->
+<!--                <td>{{task_list.task_complete}}</td>-->
+<!--                <td>{{task_list.task_description}}</td>-->
+<!--                <td>{{task_list.created_on}}</td>-->
+<!--                 <td>{{task_list.updated_on}}</td>-->
+<!--            </tr>-->
+<!--              <td>-->
+<!--                <a href="/edit_task/{{task_list.id}}">edit</a>-->
+<!--              </td>-->
+           <br>
+            <button><a href="/task">back</a></button>
+
+
+        </table>
+
+
+
+    </div>
+
+
+</body>
+</html>
